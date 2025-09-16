@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		A9BAD3B92E7975C9000CEB70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9BAD3A32E7975C7000CEB70 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9BAD3AA2E7975C7000CEB70;
+			remoteInfo = monsterCardBattle;
+		};
+		A9BAD3C32E7975C9000CEB70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9BAD3A32E7975C7000CEB70 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9BAD3AA2E7975C7000CEB70;
+			remoteInfo = monsterCardBattle;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A9BAD3AB2E7975C7000CEB70 /* monsterCardBattle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = monsterCardBattle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9BAD3B82E7975C9000CEB70 /* monsterCardBattleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = monsterCardBattleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9BAD3C22E7975C9000CEB70 /* monsterCardBattleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = monsterCardBattleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		A9BAD3AD2E7975C7000CEB70 /* monsterCardBattle */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = monsterCardBattle;
+			sourceTree = "<group>";
+		};
+		A9BAD3BB2E7975C9000CEB70 /* monsterCardBattleTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = monsterCardBattleTests;
+			sourceTree = "<group>";
+		};
+		A9BAD3C52E7975C9000CEB70 /* monsterCardBattleUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = monsterCardBattleUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A9BAD3A82E7975C7000CEB70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BAD3B52E7975C9000CEB70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BAD3BF2E7975C9000CEB70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A9BAD3A22E7975C7000CEB70 = {
+			isa = PBXGroup;
+			children = (
+				A9BAD3AD2E7975C7000CEB70 /* monsterCardBattle */,
+				A9BAD3BB2E7975C9000CEB70 /* monsterCardBattleTests */,
+				A9BAD3C52E7975C9000CEB70 /* monsterCardBattleUITests */,
+				A9BAD3AC2E7975C7000CEB70 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A9BAD3AC2E7975C7000CEB70 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9BAD3AB2E7975C7000CEB70 /* monsterCardBattle.app */,
+				A9BAD3B82E7975C9000CEB70 /* monsterCardBattleTests.xctest */,
+				A9BAD3C22E7975C9000CEB70 /* monsterCardBattleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A9BAD3AA2E7975C7000CEB70 /* monsterCardBattle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9BAD3CC2E7975C9000CEB70 /* Build configuration list for PBXNativeTarget "monsterCardBattle" */;
+			buildPhases = (
+				A9BAD3A72E7975C7000CEB70 /* Sources */,
+				A9BAD3A82E7975C7000CEB70 /* Frameworks */,
+				A9BAD3A92E7975C7000CEB70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A9BAD3AD2E7975C7000CEB70 /* monsterCardBattle */,
+			);
+			name = monsterCardBattle;
+			packageProductDependencies = (
+			);
+			productName = monsterCardBattle;
+			productReference = A9BAD3AB2E7975C7000CEB70 /* monsterCardBattle.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A9BAD3B72E7975C9000CEB70 /* monsterCardBattleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9BAD3CF2E7975C9000CEB70 /* Build configuration list for PBXNativeTarget "monsterCardBattleTests" */;
+			buildPhases = (
+				A9BAD3B42E7975C9000CEB70 /* Sources */,
+				A9BAD3B52E7975C9000CEB70 /* Frameworks */,
+				A9BAD3B62E7975C9000CEB70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9BAD3BA2E7975C9000CEB70 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A9BAD3BB2E7975C9000CEB70 /* monsterCardBattleTests */,
+			);
+			name = monsterCardBattleTests;
+			packageProductDependencies = (
+			);
+			productName = monsterCardBattleTests;
+			productReference = A9BAD3B82E7975C9000CEB70 /* monsterCardBattleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A9BAD3C12E7975C9000CEB70 /* monsterCardBattleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9BAD3D22E7975C9000CEB70 /* Build configuration list for PBXNativeTarget "monsterCardBattleUITests" */;
+			buildPhases = (
+				A9BAD3BE2E7975C9000CEB70 /* Sources */,
+				A9BAD3BF2E7975C9000CEB70 /* Frameworks */,
+				A9BAD3C02E7975C9000CEB70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9BAD3C42E7975C9000CEB70 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A9BAD3C52E7975C9000CEB70 /* monsterCardBattleUITests */,
+			);
+			name = monsterCardBattleUITests;
+			packageProductDependencies = (
+			);
+			productName = monsterCardBattleUITests;
+			productReference = A9BAD3C22E7975C9000CEB70 /* monsterCardBattleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A9BAD3A32E7975C7000CEB70 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					A9BAD3AA2E7975C7000CEB70 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					A9BAD3B72E7975C9000CEB70 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = A9BAD3AA2E7975C7000CEB70;
+					};
+					A9BAD3C12E7975C9000CEB70 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = A9BAD3AA2E7975C7000CEB70;
+					};
+				};
+			};
+			buildConfigurationList = A9BAD3A62E7975C7000CEB70 /* Build configuration list for PBXProject "monsterCardBattle" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A9BAD3A22E7975C7000CEB70;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A9BAD3AC2E7975C7000CEB70 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A9BAD3AA2E7975C7000CEB70 /* monsterCardBattle */,
+				A9BAD3B72E7975C9000CEB70 /* monsterCardBattleTests */,
+				A9BAD3C12E7975C9000CEB70 /* monsterCardBattleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A9BAD3A92E7975C7000CEB70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BAD3B62E7975C9000CEB70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BAD3C02E7975C9000CEB70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A9BAD3A72E7975C7000CEB70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BAD3B42E7975C9000CEB70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BAD3BE2E7975C9000CEB70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9BAD3BA2E7975C9000CEB70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9BAD3AA2E7975C7000CEB70 /* monsterCardBattle */;
+			targetProxy = A9BAD3B92E7975C9000CEB70 /* PBXContainerItemProxy */;
+		};
+		A9BAD3C42E7975C9000CEB70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9BAD3AA2E7975C7000CEB70 /* monsterCardBattle */;
+			targetProxy = A9BAD3C32E7975C9000CEB70 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A9BAD3CA2E7975C9000CEB70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = CJUR4BAA9R;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A9BAD3CB2E7975C9000CEB70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = CJUR4BAA9R;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A9BAD3CD2E7975C9000CEB70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CJUR4BAA9R;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.etokonatsu.monsterCardBattle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A9BAD3CE2E7975C9000CEB70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CJUR4BAA9R;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.etokonatsu.monsterCardBattle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A9BAD3D02E7975C9000CEB70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CJUR4BAA9R;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.etokonatsu.monsterCardBattleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/monsterCardBattle.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/monsterCardBattle";
+			};
+			name = Debug;
+		};
+		A9BAD3D12E7975C9000CEB70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CJUR4BAA9R;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.etokonatsu.monsterCardBattleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/monsterCardBattle.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/monsterCardBattle";
+			};
+			name = Release;
+		};
+		A9BAD3D32E7975C9000CEB70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CJUR4BAA9R;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.etokonatsu.monsterCardBattleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = monsterCardBattle;
+			};
+			name = Debug;
+		};
+		A9BAD3D42E7975C9000CEB70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CJUR4BAA9R;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.etokonatsu.monsterCardBattleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = monsterCardBattle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A9BAD3A62E7975C7000CEB70 /* Build configuration list for PBXProject "monsterCardBattle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9BAD3CA2E7975C9000CEB70 /* Debug */,
+				A9BAD3CB2E7975C9000CEB70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9BAD3CC2E7975C9000CEB70 /* Build configuration list for PBXNativeTarget "monsterCardBattle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9BAD3CD2E7975C9000CEB70 /* Debug */,
+				A9BAD3CE2E7975C9000CEB70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9BAD3CF2E7975C9000CEB70 /* Build configuration list for PBXNativeTarget "monsterCardBattleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9BAD3D02E7975C9000CEB70 /* Debug */,
+				A9BAD3D12E7975C9000CEB70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9BAD3D22E7975C9000CEB70 /* Build configuration list for PBXNativeTarget "monsterCardBattleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9BAD3D32E7975C9000CEB70 /* Debug */,
+				A9BAD3D42E7975C9000CEB70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A9BAD3A32E7975C7000CEB70 /* Project object */;
+}
