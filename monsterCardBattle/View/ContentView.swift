@@ -8,21 +8,38 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
+    @State private var goBattle = false
 
-            Button(action: {
-                // 遷移先の処理を書く
-            }) {
-                Text("モンスターカードバトル")
-                    .font(.title2)
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+    var body: some View {
+        NavigationStack { // ← NavigationStack が必要！
+            ZStack {
+                Color(UIColor.darkGray)
+                    .ignoresSafeArea()
+
+                VStack {
+                    Text("モンスターカードバトル")
+                        .font(.title2)
+                        .foregroundColor(.white)
+
+                    Button(action: {
+                        goBattle = true // ボタン押下で遷移フラグをON
+                    }) {
+                        Text("スタート！")
+                            .font(.title2)
+                            .padding()
+                            .background(Color(UIColor.green))
+                            .foregroundColor(.black)
+                            .bold()
+                            .cornerRadius(10)
+                    }
+                }
+                .padding()
+            }
+            // 👇 NavigationStack 内に navigationDestination を置く
+            .navigationDestination(isPresented: $goBattle) {
+                BattleInitView()
             }
         }
-        .padding()
     }
 }
 

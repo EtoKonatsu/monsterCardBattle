@@ -15,6 +15,7 @@ struct Enemy {
     let df: Int
     let maxHP: Int
     var currentHP: Int
+    var enemyTurn: Int
 }
 
 struct MonsterCard: Identifiable {
@@ -25,6 +26,8 @@ struct MonsterCard: Identifiable {
     let borderColor: Color
 }
 
+
+
 struct BattleInitView: View {
     let cards = [
         MonsterCard(name: "カードA", atk: 13, df: 5, borderColor: Color(UIColor.cyan)),
@@ -33,7 +36,7 @@ struct BattleInitView: View {
     ]
 
     // サンプル敵データ
-    let enemy = Enemy(name: "ドラゴン", level: 8, atk: 13, df: 5, maxHP: 50, currentHP: 40)
+    let enemy = Enemy(name: "ドラゴン", level: 8, atk: 13, df: 5, maxHP: 50, currentHP: 40, enemyTurn: 3)
 
     var body: some View {
         ZStack {
@@ -50,6 +53,21 @@ struct BattleInitView: View {
                         .overlay(
                             Rectangle()
                                 .stroke(Color(UIColor.yellow), lineWidth: 8)
+                        )
+                        .overlay(
+                            // 👇 左上にラベルを重ねる
+                            Text("あと\(enemy.enemyTurn)ターン")
+                                .font(.caption)
+                                .bold()
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 8)
+                                .background(
+                                    CutTopLeftShape()
+                                        .fill(Color.orange)
+                                )
+                                .offset(x: 4, y: -4), // 枠線にかぶせるよう調整,枠の半分の値
+                            alignment: .topTrailing
                         )
                 }
                 .padding()
@@ -152,6 +170,7 @@ struct BattleInitView: View {
             }
 
         }
+        .navigationBarBackButtonHidden(true) // ← 戻るボタンを隠す
     }
 }
 
