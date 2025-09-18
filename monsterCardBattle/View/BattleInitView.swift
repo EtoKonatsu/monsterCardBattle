@@ -9,14 +9,20 @@ import SwiftUI
 
 
 struct BattleInitView: View {
-    let monsterCards = [
-        MonsterData(name: "カードA", atk: 13, df: 5, borderColor: Color(UIColor.cyan)),
-        MonsterData(name: "カードB", atk: 5, df: 12, borderColor: Color(UIColor.magenta)),
-        MonsterData(name: "カードC", atk: 10, df: 10, borderColor: Color(UIColor.yellow))
-    ]
 
-    // サンプル敵データ
-    let enemycard = EnemyData(name: "ドラゴン", level: 8, atk: 13, df: 5, maxHP: 50, currentHP: 40, enemyTurn: 3)
+    //モンスターデータ
+    let monsterCards = [
+        MonsterData(name: "カードA", atk: 13, df: 5, hp: 20, borderColor: Color(UIColor.cyan)),
+        MonsterData(name: "カードB", atk: 5, df: 12, hp: 20, borderColor: Color(UIColor.magenta)),
+        MonsterData(name: "カードC", atk: 10, df: 10, hp: 20, borderColor: Color(UIColor.yellow))
+    ]
+    // プレイヤーデータ
+    var playerStatus: PlayerData {
+        let totalHP = monsterCards.reduce(0) { $0 + $1.hp } // ← hpの合計
+        return PlayerData(name: "こなこな", level: 1, maxHP: totalHP, currentHP: totalHP)
+    }
+    // 敵データ
+    let enemycard = EnemyData(name: "ドラゴン", level: 8, atk: 13, df: 5, maxHP: 50, currentHP: 40, enemyTurn: 3, borderColor: Color(UIColor.yellow))
 
     var body: some View {
         ZStack {
@@ -36,24 +42,17 @@ struct BattleInitView: View {
 
                 // プレイヤーのカード群
                 HStack {
-                    ForEach(monsterCards) { monsterCards in
-                        MonsterCardView(monsterCards: monsterCards)
+                    ForEach(monsterCards) { monster in
+                        MonsterCardView(monsterCards: monster)
                             .onTapGesture {
-                                print("\(monsterCards.name) が選択されました")
+                                print("\(monster.name) が選択されました")
                             }
                     }
                     .padding()
                 }
+                // 敵のステータスエリア
+                PlayerStatusView(playerStatus: playerStatus)
 
-                Text("プレイヤーのステータス")
-                    .font(.headline)
-                    .foregroundColor(.black)
-                    .frame(width: 350, height: 150)
-                    .background(Color.black.opacity(0.5))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 4)
-                            .stroke(Color(UIColor.green), lineWidth: 2)
-                    )
             }
 
         }

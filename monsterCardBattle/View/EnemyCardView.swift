@@ -18,21 +18,25 @@ struct EnemyCardView: View {
                 .background(Color(UIColor.lightGray))
                 .overlay(
                     Rectangle()
-                        .stroke(.yellow, lineWidth: 8)
+                        .stroke(enemycard.borderColor, lineWidth: 8)
                 )
                 .overlay(
                     Text("あと\(enemycard.enemyTurn)ターン")
-                        .font(.caption)
                         .bold()
                         .foregroundColor(.white)
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 8)
+                        .frame(width: 100, alignment: .trailing) // ← 幅を確保して右寄せ
+                        .multilineTextAlignment(.trailing)       // ← テキスト右寄せ
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
                         .background(
-                            CutTopLeftShape().fill(.orange)
+                            CutTopLeftParallelogramShape()
+                                .fill(enemycard.enemyTurn == 1 ? Color.red : Color.orange) // ← 1ターンなら赤
                         )
-                        .offset(x: 4, y: -4),
-                    alignment: .topTrailing
+                        .shadow(color: .black.opacity(0.4), radius: 3, x: 2, y: 2) // ← 影を追加
+                        .offset(x: 4, y: -4), // ← 枠に少しかぶせる
+                    alignment: .topTrailing // ← 左上に配置（右寄せはテキスト内部で制御）
                 )
+
         }
     }
 }

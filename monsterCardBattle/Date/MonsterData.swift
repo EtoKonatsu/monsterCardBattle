@@ -12,5 +12,6 @@ struct MonsterData: Identifiable {
     let name: String
     let atk: Int
     let df: Int
+    let hp: Int
     let borderColor: Color
 }

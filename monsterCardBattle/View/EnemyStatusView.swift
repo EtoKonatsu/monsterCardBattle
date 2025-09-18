@@ -13,11 +13,9 @@ struct EnemyStatusView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
-                Text(enemycard.name)
+                Text("\(enemycard.name)  Lv. \(enemycard.level)")
                     .font(.title2)
                     .bold()
-                    .foregroundColor(.white)
-                Text("Lv. \(enemycard.level)")
                     .foregroundColor(.white)
                 Spacer()
                 Text("ATK: \(enemycard.atk)")
