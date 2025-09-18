@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PlayerStatusView: View {
     let playerStatus: PlayerData
+    let damageText: Int?
     let onAttack: () -> Void // 攻撃処理を親から受け取る
 
     var body: some View {
@@ -42,8 +43,8 @@ struct PlayerStatusView: View {
 
             }
 
-            // HPゲージ
             HStack {
+                // HPゲージ
                 ZStack(alignment: .leading) {
                     Rectangle()
                         .fill(Color.gray.opacity(0.4))
@@ -64,7 +65,15 @@ struct PlayerStatusView: View {
                                 .stroke(.white, lineWidth: 2)
                         )
                 }
-                .frame(width: 250)
+                .frame(width: 250, height: 30)
+                .overlay(
+                    Group {
+                        if let damage = damageText {
+                            DamagePopupView(damage: damage) // 👈 敵からのダメージ表示
+                        }
+                    },
+                    alignment: .center
+                )
 
                 Spacer()
 
