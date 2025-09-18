@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct BattleInitView: View {
-    @State private var selectedCard: MonsterData? = nil // ← 選ばれたカード
-    @State private var enemyHP: Int = 40                // ← 敵のHP（初期値40）
+    @State private var selectedCard: MonsterData? = nil
+    @State private var enemyHP: Int = 50
+    @State private var damageText: Int? = nil
+
 
     //モンスターデータ
     let monsterCards = [
@@ -18,7 +20,7 @@ struct BattleInitView: View {
         MonsterData(name: "カードC", atk: 10, df: 10, hp: 20, borderColor: Color(UIColor.yellow))
     ]
     // 敵データ
-    let enemycard = EnemyData(name: "ドラゴン", level: 8, atk: 13, df: 5, maxHP: 50, currentHP: 40, enemyTurn: 3, borderColor: Color(UIColor.yellow))
+    let enemycard = EnemyData(name: "ドラゴン", level: 8, atk: 13, df: 5, maxHP: 50, currentHP: 50, enemyTurn: 3, borderColor: Color(UIColor.yellow))
     // プレイヤーデータ
     var playerStatus: PlayerData {
         let totalHP = monsterCards.reduce(0) { $0 + $1.hp } // ← hpの合計
@@ -38,7 +40,7 @@ struct BattleInitView: View {
                     .padding()
 
                 // 敵ステータス（現在のHPを反映）
-                EnemyStatusView(enemycard: enemycard, currentHP: enemyHP)
+                EnemyStatusView(enemycard: enemycard, currentHP: enemyHP, damageText: damageText)
 
                 Spacer().frame(height: 40)
 
@@ -62,14 +64,31 @@ struct BattleInitView: View {
                     playerStatus: playerStatus,
                     onAttack: {
                         if let card = selectedCard {
-                            let attackDamage = max(card.atk - enemycard.df, 0) // ダメージ計算
-                            enemyHP = max(enemyHP - attackDamage, 0)            // HPを減らす
+                            // ✅ ダメージ計算を BattleLogic に任せる
+                            let attackDamage = BatrleCalculation.calculateDamage(
+                                attackerATK: card.atk,
+                                defenderDF: enemycard.df
+                            )
+
+                            // 敵HPを減らす
+                            enemyHP = max(enemyHP - attackDamage, 0)
                             print("敵に\(attackDamage)ダメージ！ 残りHP: \(enemyHP)")
+
+                            // ダメージ表示を出す
+                            withAnimation(.easeOut(duration: 0.2)) {
+                                damageText = attackDamage
+                            }
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                withAnimation {
+                                    damageText = nil
+                                }
+                            }
                         } else {
                             print("カードが選ばれていません！")
                         }
                     }
                 )
+
             }
         }
         .navigationBarBackButtonHidden(true)

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct EnemyStatusView: View {
     let enemycard: EnemyData
-    let currentHP: Int // ← 外から渡す
+    let currentHP: Int
+    let damageText: Int?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -39,14 +40,26 @@ struct EnemyStatusView: View {
 
                     Rectangle()
                         .fill(Color.purple)
-                        .frame(width: CGFloat(currentHP) / CGFloat(enemycard.maxHP) * 250, height: 12)
+                        .frame(
+                            width: CGFloat(currentHP) / CGFloat(enemycard.maxHP) * 250,
+                            height: 12
+                        )
                         .cornerRadius(6)
                         .overlay(
                             RoundedRectangle(cornerRadius: 6)
                                 .stroke(.white, lineWidth: 2)
                         )
                 }
-                .frame(width: 250)
+                .frame(width: 250, height: 30)
+                // 👇 ダメージは別 overlay で中央に配置
+                .overlay(
+                    Group {
+                        if let attackDamage = damageText {
+                            DamagePopupView(damage: attackDamage)
+                        }
+                    },
+                    alignment: .center
+                )
 
                 Spacer()
                 Text("\(currentHP) / \(enemycard.maxHP)")
