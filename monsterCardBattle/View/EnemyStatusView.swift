@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EnemyStatusView: View {
     let enemycard: EnemyData
+    let currentHP: Int // ← 外から渡す
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -38,7 +39,7 @@ struct EnemyStatusView: View {
 
                     Rectangle()
                         .fill(Color.purple)
-                        .frame(width: CGFloat(enemycard.currentHP) / CGFloat(enemycard.maxHP) * 250, height: 12)
+                        .frame(width: CGFloat(currentHP) / CGFloat(enemycard.maxHP) * 250, height: 12)
                         .cornerRadius(6)
                         .overlay(
                             RoundedRectangle(cornerRadius: 6)
@@ -48,7 +49,7 @@ struct EnemyStatusView: View {
                 .frame(width: 250)
 
                 Spacer()
-                Text("\(enemycard.currentHP) / \(enemycard.maxHP)")
+                Text("\(currentHP) / \(enemycard.maxHP)")
                     .foregroundColor(.white)
             }
         }

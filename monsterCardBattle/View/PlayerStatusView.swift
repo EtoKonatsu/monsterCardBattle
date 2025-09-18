@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PlayerStatusView: View {
     let playerStatus: PlayerData
+    let onAttack: () -> Void // 攻撃処理を親から受け取る
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -18,22 +19,24 @@ struct PlayerStatusView: View {
                     .font(.title2)
                     .bold()
                     .foregroundColor(.white)
-                Spacer(minLength: 50)//攻撃ボタンまでの余白を確保
+                Spacer(minLength: 50)
 
 
                 Button(action: {
                     print("攻撃ボタンが押されました！")
+                    onAttack() // 攻撃処理を実行
+
                 }) {
                     Text("攻撃！")
                         .font(.title)
                         .bold()
                         .foregroundColor(.black)
-                        .shadow(color: .black.opacity(0.4), radius: 2, x: 1, y: 1) // ← テキスト用の影
+                        .shadow(color: .black.opacity(0.4), radius: 2, x: 1, y: 1)
                         .padding(.horizontal, 20)
                         .padding(.vertical, 6)
                         .background(Color.red)
-                        .clipShape(ParallelogramShape()) // ← 平行四辺形
-                        .shadow(color: .black.opacity(0.8), radius: 3, x: 2, y: 2) // ← ボタン全体の影
+                        .clipShape(ParallelogramShape())
+                        .shadow(color: .black.opacity(0.8), radius: 3, x: 2, y: 2)
                 }
                 Spacer()
 
@@ -71,7 +74,7 @@ struct PlayerStatusView: View {
             }
         }
         .padding()
-        .frame(width: 350, height: 150)
+        .frame(width: 350, height: 120)
         .background(Color.black.opacity(0.5))
         .overlay(
             RoundedRectangle(cornerRadius: 4)
