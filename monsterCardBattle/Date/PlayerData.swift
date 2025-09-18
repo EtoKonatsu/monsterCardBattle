@@ -1,0 +1,17 @@
+//
+//  PlayerData.swift
+//  monsterCardBattle
+//
+//  Created by 江藤小夏 on 2025/09/18.
+//
+
+import SwiftUI
+
+// プレイヤーのデータ
+struct PlayerData: Identifiable {
+    var id = UUID()
+    let name: String
+    let level: Int
+    let maxHP: Int
+    var currentHP: Int
+}
