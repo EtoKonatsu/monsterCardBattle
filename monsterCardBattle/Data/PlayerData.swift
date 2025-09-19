@@ -15,3 +15,9 @@ struct PlayerData: Identifiable {
     let maxHP: Int
     var currentHP: Int
 }
+
+extension PlayerData {
+    func withCurrentHP(_ hp: Int) -> PlayerData {
+        return PlayerData(name: name, level: level, maxHP: maxHP, currentHP: hp)
+    }
+}

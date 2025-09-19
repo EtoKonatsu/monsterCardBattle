@@ -37,7 +37,7 @@ struct ContentView: View {
             }
             // 👇 NavigationStack 内に navigationDestination を置く
             .navigationDestination(isPresented: $goBattle) {
-                BattleInitView()
+                QuestSelectView()
             }
         }
     }

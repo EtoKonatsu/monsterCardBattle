@@ -13,5 +13,5 @@ struct MonsterData: Identifiable {
     let atk: Int
     let df: Int
     let hp: Int
-    let borderColor: Color
+    let borderColor: Color//属性型に変更する。enumとか使う
 }
