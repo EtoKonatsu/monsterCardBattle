@@ -10,24 +10,27 @@ import SwiftUI
 struct BattleInitView: View {
     
     @State private var selectedCard: MonsterData? = nil
-    @StateObject private var manager = BattleProcess(
-        enemy: EnemyData(name: "ドラゴン", level: 8, atk: 13, df: 5, maxHP: 50, currentHP: 50, enemyTurn: 4, borderColor: .yellow),
-        playerHP: 60
-    )
-    
-    //モンスターデータ
-    let monsterCards = [
-        MonsterData(name: "カードA", atk: 13, df: 5, hp: 20, borderColor: Color(UIColor.cyan)),
-        MonsterData(name: "カードB", atk: 5, df: 12, hp: 20, borderColor: Color(UIColor.magenta)),
-        MonsterData(name: "カードC", atk: 10, df: 10, hp: 20, borderColor: Color(UIColor.yellow))
-    ]
-    
+    // モンスターデータ
+    let monsterCards = MonsterCardRepository.defaultCards
+
+    // BattleProcess を PlayerRepository に任せる
+    @StateObject private var manager: BattleProcess
+
+    init() {
+        _manager = StateObject(
+            wrappedValue: PlayerRepository.createBattleProcess(
+                enemy: EnemyRepository.dragon,
+                cards: MonsterCardRepository.defaultCards
+            )
+        )
+    }
+
     // プレイヤーデータ
     var playerStatus: PlayerData {
-        let totalHP = monsterCards.reduce(0) { $0 + $1.hp } // ← hpの合計
-        return PlayerData(name: "こなこな", level: 1, maxHP: totalHP, currentHP: manager.playerHP)
+        PlayerRepository.createDefaultPlayer(using: monsterCards)
+            .withCurrentHP(manager.playerHP) // 👈 現在HPを反映
     }
-    
+
     var body: some View {
         ZStack {
             Color(UIColor.darkGray) // 背景全体にグレーを敷く
@@ -75,6 +78,28 @@ struct BattleInitView: View {
                     }
                 )
             }
+            // ✅ ゲームクリア
+            if manager.result == .win {
+                GameResultOverlay(
+                    message: "CLEAR!!!",
+                    buttonTitle: "クエストに戻る",
+                    isWin: true
+                ) {
+                    print("クエストに戻る")
+                }
+            }
+
+            // ✅ ゲームオーバー
+            if manager.result == .lose {
+                GameResultOverlay(
+                    message: "Game Over",
+                    buttonTitle: "クエストに戻る",
+                    isWin: false
+                ) {
+                    print("クエストに戻る")
+                }
+            }
+
         }
         .navigationBarBackButtonHidden(true)
     }

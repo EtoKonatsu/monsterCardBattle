@@ -7,6 +7,12 @@
 
 import Foundation
 
+enum BattleResult {
+    case none
+    case win
+    case lose
+}
+
 class BattleProcess: ObservableObject {
     // MARK: - プロパティ
     @Published var enemyHP: Int
@@ -14,6 +20,7 @@ class BattleProcess: ObservableObject {
     @Published var enemyTurnCount: Int
     @Published var damageText: Int? = nil
     @Published var playerDamageText: Int? = nil
+    @Published var result: BattleResult = .none
 
     let enemy: EnemyData
 
@@ -34,6 +41,17 @@ class BattleProcess: ObservableObject {
         )
         enemyHP = max(enemyHP - attackDamage, 0)
         print("敵に\(attackDamage)ダメージ！ 残りHP: \(enemyHP)")
+
+        damageText = attackDamage
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.damageText = nil
+        }
+
+        // ✅ 敵HPが0なら勝利
+        if enemyHP <= 0 {
+            result = .win
+            return
+        }
 
         // 2️⃣ ダメージ演出
         damageText = attackDamage
@@ -61,6 +79,11 @@ class BattleProcess: ObservableObject {
                 self.playerDamageText = enemyDamage
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     self.playerDamageText = nil
+                }
+
+                // ✅ プレイヤーHPが0なら敗北
+                if self.playerHP <= 0 {
+                    self.result = .lose
                 }
 
                 completion() // 攻撃処理完了を通知

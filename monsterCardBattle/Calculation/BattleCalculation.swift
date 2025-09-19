@@ -20,7 +20,7 @@ struct BattleCalculation {
 
     /// 敵ターンまでの残りカウントを更新する
     static func updateEnemyTurn(currentCount: Int, interval: Int) -> (newCount: Int, shouldEnemyAttack: Bool) {
-        var count = currentCount - 1
+        let count = currentCount - 1
         if count <= 0 {
             return (interval, true) // カウントリセット & 敵攻撃フラグON
         } else {

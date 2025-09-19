@@ -7,17 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "379FA3CD-F9E8-44C3-9D31-6F49BDD1D4CB"
+            uuid = "D6453F3D-0351-4E6B-8C87-C3EED0B7AA20"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "monsterCardBattle/View/PlayerStatusView.swift"
+            filePath = "monsterCardBattle/View/BattleInitView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "body"
-            landmarkType = "24">
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "BattleInitView"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
