@@ -8,21 +8,20 @@
 import SwiftUI
 
 struct EnemyStatusView: View {
-    let enemycard: EnemyData
-    let currentHP: Int
+    let enemy: BattleViewState.EnemyInfo
     let damageText: Int?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
-                Text("\(enemycard.name)  Lv. \(enemycard.level)")
+                Text("\(enemy.name)  Lv. \(enemy.level)")
                     .font(.title2)
                     .bold()
                     .foregroundColor(.white)
                 Spacer()
-                Text("ATK: \(enemycard.atk)")
+                Text("ATK: \(enemy.attack)")
                     .foregroundColor(.white)
-                Text("DF: \(enemycard.df)")
+                Text("DF: \(enemy.defense)")
                     .foregroundColor(.white)
             }
 
@@ -41,7 +40,7 @@ struct EnemyStatusView: View {
                     Rectangle()
                         .fill(Color.purple)
                         .frame(
-                            width: CGFloat(currentHP) / CGFloat(enemycard.maxHP) * 250,
+                            width: CGFloat(enemy.currentHP) / CGFloat(enemy.maxHP) * 250,
                             height: 12
                         )
                         .cornerRadius(6)
@@ -62,7 +61,7 @@ struct EnemyStatusView: View {
                 )
 
                 Spacer()
-                Text("\(currentHP) / \(enemycard.maxHP)")
+                Text("\(enemy.currentHP) / \(enemy.maxHP)")
                     .foregroundColor(.white)
             }
         }

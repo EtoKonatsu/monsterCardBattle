@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct monsterCardBattleApp: App {
+    @StateObject private var dependencyContainer = AppDependencyContainer()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.battlePresenterFactory, dependencyContainer.makeBattlePresenter)
         }
     }
 }

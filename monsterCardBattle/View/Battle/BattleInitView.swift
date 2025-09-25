@@ -8,27 +8,10 @@
 import SwiftUI
 
 struct BattleInitView: View {
-    
-    @State private var selectedCard: MonsterData? = nil
-    // モンスターデータ
-    let monsterCards = MonsterCardRepository.defaultCards
+    @StateObject private var presenter: BattlePresenter
 
-    // BattleProcess を PlayerRepository に任せる
-    @StateObject private var manager: BattleProcess
-
-    init() {
-        _manager = StateObject(
-            wrappedValue: PlayerRepository.createBattleProcess(
-                enemy: EnemyRepository.dragon,
-                cards: MonsterCardRepository.defaultCards
-            )
-        )
-    }
-
-    // プレイヤーデータ
-    var playerStatus: PlayerData {
-        PlayerRepository.createDefaultPlayer(using: monsterCards)
-            .withCurrentHP(manager.playerHP) // 👈 現在HPを反映
+    init(presenter: BattlePresenter) {
+        _presenter = StateObject(wrappedValue: presenter)
     }
 
     var body: some View {
@@ -40,24 +23,20 @@ struct BattleInitView: View {
                 Spacer().frame(height: 100)
                 
                 // 敵のカード
-                EnemyCardView(enemycard: manager.enemy, remainingTurns: manager.enemyTurnCount)
+                EnemyCardView(enemy: presenter.state.enemy)
                     .padding()
                 
                 // 敵ステータス
-                EnemyStatusView(enemycard: manager.enemy, currentHP: manager.enemyHP, damageText: manager.damageText)
+                EnemyStatusView(enemy: presenter.state.enemy, damageText: presenter.state.enemyDamagePopup)
                 
                 Spacer().frame(height: 40)
                 
                 // プレイヤーのカード群
                 HStack {
-                    ForEach(monsterCards) { monster in
-                        MonsterCardView(
-                            monsterCards: monster,
-                            isSelected: selectedCard?.id == monster.id // ← 選択判定を渡す
-                        )
+                    ForEach(presenter.state.cards) { card in
+                        MonsterCardView(card: card)
                         .onTapGesture {
-                            selectedCard = monster
-                            print("\(monster.name) を選択しました")
+                            presenter.selectCard(id: card.id)
                         }
                     }
                     .padding(10)
@@ -65,21 +44,15 @@ struct BattleInitView: View {
                 
                 // プレイヤーステータス + 攻撃ボタン
                 PlayerStatusView(
-                    playerStatus: playerStatus,
-                    damageText: manager.playerDamageText,
+                    player: presenter.state.player,
+                    damageText: presenter.state.playerDamagePopup,
                     onAttack: {
-                        if let card = selectedCard {
-                            manager.playerAttack(using: card) {
-                                // 攻撃後に必要な処理があればここに
-                            }
-                        } else {
-                            print("カードが選ばれていません！")
-                        }
+                        presenter.attack()
                     }
                 )
             }
             // ✅ ゲームクリア
-            if manager.result == .win {
+            if presenter.state.result == .win {
                 GameResultOverlay(
                     message: "CLEAR!!!",
                     buttonTitle: "クエストに戻る",
@@ -90,7 +63,7 @@ struct BattleInitView: View {
             }
 
             // ✅ ゲームオーバー
-            if manager.result == .lose {
+            if presenter.state.result == .lose {
                 GameResultOverlay(
                     message: "Game Over",
                     buttonTitle: "クエストに戻る",
