@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlayerStatusView: View {
-    let playerStatus: PlayerData
+    let player: BattleViewState.PlayerInfo
     let damageText: Int?
     let onAttack: () -> Void // 攻撃処理を親から受け取る
 
@@ -16,7 +16,7 @@ struct PlayerStatusView: View {
         VStack(alignment: .leading, spacing: 8) {
 
             HStack {
-                Text("\(playerStatus.name)  Lv. \(playerStatus.level)")
+                Text("\(player.name)  Lv. \(player.level)")
                     .font(.title2)
                     .bold()
                     .foregroundColor(.white)
@@ -57,7 +57,7 @@ struct PlayerStatusView: View {
 
                     Rectangle()
                         .fill(Color.green)
-                        .frame(width: CGFloat(playerStatus.currentHP) / CGFloat(playerStatus.maxHP) * 250,
+                        .frame(width: CGFloat(player.currentHP) / CGFloat(player.maxHP) * 250,
                                height: 12)
                         .cornerRadius(6)
                         .overlay(
@@ -77,7 +77,7 @@ struct PlayerStatusView: View {
 
                 Spacer()
 
-                Text("\(playerStatus.currentHP) / \(playerStatus.maxHP)")
+                Text("\(player.currentHP) / \(player.maxHP)")
                     .foregroundColor(.white)
                     .bold()
             }

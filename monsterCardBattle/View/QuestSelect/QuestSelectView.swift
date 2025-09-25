@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct QuestSelectView: View {
+    @Environment(\.battlePresenterFactory) private var makeBattlePresenter
+
     var body: some View {
         ZStack {
             Color(UIColor.darkGray).ignoresSafeArea()
@@ -17,7 +19,7 @@ struct QuestSelectView: View {
                     .foregroundColor(.white)
 
                 NavigationLink("初級クエスト") {
-                    BattleInitView() // ← バトル画面へ
+                    BattleInitView(presenter: makeBattlePresenter())
                 }
                 .font(.title2)
                 .padding()
