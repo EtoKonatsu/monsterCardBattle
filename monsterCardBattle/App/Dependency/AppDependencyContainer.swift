@@ -17,10 +17,16 @@ final class AppDependencyContainer: ObservableObject {
     }
 
     func makeBattlePresenter() -> BattlePresenter {
-        BattlePresenter(
-            monsterRepository: monsterRepository,
-            enemyRepository: enemyRepository,
-            playerRepository: playerRepository
+        let cards = monsterRepository.fetchStarterDeck()
+        let enemy = enemyRepository.fetchBossEnemy()
+        let totalHP = cards.reduce(0) { $0 + $1.hp }
+        let player = playerRepository.createDefaultPlayer(maxHP: totalHP)
+        let useCase = BattleUseCase(enemy: enemy, playerMaxHP: player.maxHP)
+
+        return BattlePresenter(
+            cards: cards,
+            player: player,
+            useCase: useCase
         )
     }
 }

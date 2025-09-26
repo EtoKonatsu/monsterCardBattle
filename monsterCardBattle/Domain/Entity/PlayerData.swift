@@ -4,8 +4,7 @@
 //
 //  Created by 江藤小夏 on 2025/09/18.
 //
-
-import SwiftUI
+import Foundation
 
 // プレイヤーのデータ
 struct PlayerData: Identifiable {

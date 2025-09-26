@@ -49,7 +49,7 @@ View (SwiftUI) → Presenter → UseCase → Repository → DataSource
   - `let enemyRepository: EnemyRepositoryProtocol`
   - `let monsterRepository: MonsterCardRepositoryProtocol`
   - `func makeBattlePresenter() -> BattlePresenterProtocol`
-- `monsterCardBattleApp` の `WindowGroup` で `let container = AppDependencyContainer()` を生成し、`BattleInitView(presenter: container.makeBattlePresenter())` のように注入。
+- `monsterCardBattleApp` の `WindowGroup` で `let container = AppDependencyContainer()` を生成し、`EnvironmentValues.battlePresenterFactory` に `container.makeBattlePresenter` を設定。
 - Presenter はコンテナから受け取った UseCase/Repository にのみ依存し、View との接合点はプロトコル経由に限定する。
 
 ## チェックリスト
@@ -63,5 +63,7 @@ View (SwiftUI) → Presenter → UseCase → Repository → DataSource
 - `BattleUseCase` がバトル進行ロジックと状態 (`BattleSnapshot`) を管理。
 - `BattlePresenter` が `BattleViewState` を生成し、カード選択や攻撃入力を仲介。
 - `AppDependencyContainer` でリポジトリの具象実装を束ね、View へ Presenter を注入。
+- `AppDependencyContainer` がカード/敵データの取得と UseCase 生成まで担い、Presenter は完成済みの依存だけを受け取る。
 - モデルの `CardFrameStyle` を Presenter 側で `Color` にマッピングして UI 非依存を維持。
 - `EnvironmentValues.battlePresenterFactory` を介して View は DI コンテナの存在を意識せず Presenter を取得。
+- フォルダ構成は `View/`, `Presenter/`, `UseCase/`, `Repository/`, `Domain/Entity` のレイヤとし、旧 `Data` フォルダは `Repository` に統合。

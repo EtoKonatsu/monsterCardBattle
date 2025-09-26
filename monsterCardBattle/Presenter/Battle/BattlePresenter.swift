@@ -11,41 +11,29 @@ protocol BattlePresenterProtocol: ObservableObject {
 final class BattlePresenter: BattlePresenterProtocol {
     @Published private(set) var state: BattleViewState
 
-    private let monsterRepository: MonsterCardRepositoryProtocol
-    private let enemyRepository: EnemyRepositoryProtocol
-    private let playerRepository: PlayerRepositoryProtocol
     private let useCase: BattleUseCaseProtocol
+    private let cards: [MonsterData]
+    private let basePlayer: PlayerData
     private var player: PlayerData
-    private var cards: [MonsterData]
     private var selectedCardID: UUID?
 
     private var enemyDamageClearTask: DispatchWorkItem?
     private var playerDamageClearTask: DispatchWorkItem?
 
     init(
-        monsterRepository: MonsterCardRepositoryProtocol,
-        enemyRepository: EnemyRepositoryProtocol,
-        playerRepository: PlayerRepositoryProtocol,
-        useCaseBuilder: (EnemyData, Int) -> BattleUseCaseProtocol = { BattleUseCase(enemy: $0, playerMaxHP: $1) }
+        cards: [MonsterData],
+        player: PlayerData,
+        useCase: BattleUseCaseProtocol
     ) {
-        self.monsterRepository = monsterRepository
-        self.enemyRepository = enemyRepository
-        self.playerRepository = playerRepository
-
-        let cards = monsterRepository.fetchStarterDeck()
-        let enemy = enemyRepository.fetchBossEnemy()
-        let totalHP = cards.reduce(0) { $0 + $1.hp }
-        let player = playerRepository.createDefaultPlayer(maxHP: totalHP)
-        let useCase = useCaseBuilder(enemy, player.maxHP)
-
         self.cards = cards
+        self.basePlayer = player
         self.player = player
         self.useCase = useCase
         self.selectedCardID = nil
 
         let initialState = BattlePresenter.makeState(
             snapshot: useCase.currentSnapshot(),
-            enemy: enemy,
+            enemy: useCase.enemy,
             player: player,
             cards: cards,
             selectedCardID: nil,
@@ -81,7 +69,7 @@ final class BattlePresenter: BattlePresenterProtocol {
     func reset() {
         cancelDamageClearTasks()
         let snapshot = useCase.reset()
-        player = playerRepository.createDefaultPlayer(maxHP: useCase.playerMaxHP)
+        player = basePlayer
         selectedCardID = nil
         publishState(snapshot: snapshot, enemyDamage: nil, playerDamage: nil)
     }
