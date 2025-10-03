@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var goBattle = false
+    @Environment(\.battlePresenterFactory) private var makeBattlePresenter
 
     var body: some View {
         NavigationStack { // ← NavigationStack が必要！
@@ -37,7 +38,8 @@ struct ContentView: View {
             }
             // 👇 NavigationStack 内に navigationDestination を置く
             .navigationDestination(isPresented: $goBattle) {
-                QuestSelectView()
+                let presenter = makeBattlePresenter()
+                QuestSelectView(player: presenter.state.player)
             }
         }
     }

@@ -12,11 +12,12 @@ struct MonsterCardView: View {
 
     var body: some View {
         VStack {
-            Text(card.name)
-                .font(.caption)
-                .foregroundColor(.black)
+            // モンスター画像
+            Image(MonsterImageProvider.imageName(for: card))
+                .resizable()
+                .scaledToFit()
                 .frame(width: 100, height: 100)
-                .background(Color(UIColor.lightGray))
+                .background(Color.black)
                 .overlay(
                     Rectangle()
                         .stroke(card.frameColor, lineWidth: 8)
@@ -24,7 +25,7 @@ struct MonsterCardView: View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 1)
                         .inset(by: -12)
-                        .stroke(card.isSelected ? Color(UIColor.green) : Color.clear, lineWidth: 5)
+                        .stroke(card.isSelected ? Color.green : Color.clear, lineWidth: 5)
                 )
 
             Text("ATK: \(card.attack)")

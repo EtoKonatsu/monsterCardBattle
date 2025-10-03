@@ -20,7 +20,7 @@ struct BattleInitView: View {
                 .ignoresSafeArea() // 安全領域も含めて全体に
             
             VStack {
-                Spacer().frame(height: 100)
+                Spacer().frame(height: 50)
                 
                 // 敵のカード
                 EnemyCardView(enemy: presenter.state.enemy)

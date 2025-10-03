@@ -17,7 +17,7 @@ struct EnemyRepository: EnemyRepositoryProtocol {
             maxHP: 50,
             currentHP: 50,
             enemyTurn: 4,
-            frameStyle: .gold
+            frameStyle: .emerald
         )
     }
 }

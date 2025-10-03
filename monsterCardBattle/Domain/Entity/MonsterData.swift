@@ -6,15 +6,6 @@
 //
 import Foundation
 
-enum CardFrameStyle: String, CaseIterable, Codable {
-    case aqua
-    case magenta
-    case aurora
-    case crimson
-    case emerald
-    case gold
-}
-
 // プレイヤーモンスターのモデル
 struct MonsterData: Identifiable, Codable {
     let id: UUID
@@ -24,7 +15,14 @@ struct MonsterData: Identifiable, Codable {
     let hp: Int
     let frameStyle: CardFrameStyle
 
-    init(id: UUID = UUID(), name: String, atk: Int, df: Int, hp: Int, frameStyle: CardFrameStyle) {
+    init(
+        id: UUID = UUID(),
+        name: String,
+        atk: Int,
+        df: Int,
+        hp: Int,
+        frameStyle: CardFrameStyle
+    ) {
         self.id = id
         self.name = name
         self.atk = atk

@@ -12,13 +12,14 @@ struct EnemyCardView: View {
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            Text(enemy.name)
-                .foregroundColor(.black)
-                .frame(width: 150, height: 150)
-                .background(Color(UIColor.lightGray))
+            Image("enemy_dragon") // ← Assets.xcassets に登録した画像名
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200)
+                .background(Color.gray.opacity(0.3)) // 透明部分があった時の背景色
                 .overlay(
                     Rectangle()
-                        .stroke(enemy.frameColor, lineWidth: 8)
+                        .stroke(enemy.frameColor, lineWidth: 8) // 枠色
                 )
                 .overlay(
                     Text(enemy.remainingTurnText)
@@ -30,7 +31,7 @@ struct EnemyCardView: View {
                         .padding(.vertical, 6)
                         .background(
                             CutTopLeftParallelogramShape()
-                                .fill(enemy.isTurnImminent ? Color.red : Color.orange)
+                                .fill(enemy.isTurnImminent ? Color.red : Color.listBuleSelected)
                         )
                         .shadow(color: .black.opacity(0.4), radius: 3, x: 2, y: 2) // ← 影を追加
                         .offset(x: 4, y: -4), // ← 枠に少しかぶせる
