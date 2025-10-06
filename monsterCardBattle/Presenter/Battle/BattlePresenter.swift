@@ -10,6 +10,8 @@ protocol BattlePresenterProtocol: ObservableObject {
 
 final class BattlePresenter: BattlePresenterProtocol {
     @Published private(set) var state: BattleViewState
+    @Published var isAttackButtonDisabled: Bool = false  // 攻撃ボタン制御用
+
 
     private let useCase: BattleUseCaseProtocol
     private let cards: [MonsterData]
@@ -50,21 +52,55 @@ final class BattlePresenter: BattlePresenterProtocol {
     }
 
     func attack() {
+        guard !isAttackButtonDisabled else { return }
         guard let selectedID = selectedCardID,
-              let card = cards.first(where: { $0.id == selectedID }) else {
-            return
+              let card = cards.first(where: { $0.id == selectedID }) else { return }
+
+        isAttackButtonDisabled = true // 🔒 攻撃無効化
+
+        // === ① プレイヤー攻撃 ===
+        let playerAction = useCase.playerAttack(using: card)
+        player = player.withCurrentHP(playerAction.snapshot.playerHP)
+
+        // 敵HP更新・ダメージ表示（この時点で1回だけ）
+        publishState(
+            snapshot: playerAction.snapshot,
+            enemyDamage: playerAction.enemyDamageTaken,
+            playerDamage: nil
+        )
+
+        // プレイヤー攻撃ダメージポップアップは0.5秒後に消す
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.clearEnemyDamagePopup()
         }
 
-        let actionResult = useCase.playerAttack(using: card)
-        player = player.withCurrentHP(actionResult.snapshot.playerHP)
-        cancelDamageClearTasks()
-        publishState(
-            snapshot: actionResult.snapshot,
-            enemyDamage: actionResult.enemyDamageTaken,
-            playerDamage: actionResult.playerDamageTaken
-        )
-        scheduleDamageClear()
+        // === ② 敵の反撃（もし準備できていれば） ===
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+            guard let self = self else { return }
+
+            if let enemyAction = self.useCase.enemyAttackIfReady(defendingCard: card) {
+                self.player = self.player.withCurrentHP(enemyAction.snapshot.playerHP)
+
+                // 💡 このフェーズでは「敵のダメージ」を再び更新しない
+                self.publishState(
+                    snapshot: enemyAction.snapshot,
+                    enemyDamage: nil,
+                    playerDamage: enemyAction.playerDamageTaken
+                )
+
+                // 敵攻撃ダメージポップアップを0.5秒後に消す
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.clearPlayerDamagePopup()
+                }
+            }
+
+            // 攻撃フェーズ完了後にボタンを再度有効化
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.isAttackButtonDisabled = false
+            }
+        }
     }
+
 
     func reset() {
         cancelDamageClearTasks()
