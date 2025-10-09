@@ -10,7 +10,9 @@ import SwiftUI
 struct PlayerStatusView: View {
     let player: BattleViewState.PlayerInfo
     let damageText: Int?
-    let onAttack: () -> Void // 攻撃処理を親から受け取る
+    let onAttack: () -> Void
+    let isAttackDisabled: Bool
+
 
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -39,6 +41,8 @@ struct PlayerStatusView: View {
                         .clipShape(ParallelogramShape())
                         .shadow(color: .black.opacity(0.8), radius: 3, x: 2, y: 2)
                 }
+                .disabled(isAttackDisabled) //　無効化を適用
+                .opacity(isAttackDisabled ? 0.5 : 1.0) // 視覚的にわかりやすく
                 Spacer()
 
             }

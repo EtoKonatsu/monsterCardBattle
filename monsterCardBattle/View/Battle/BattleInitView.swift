@@ -9,11 +9,11 @@ import SwiftUI
 
 struct BattleInitView: View {
     @StateObject private var presenter: BattlePresenter
-
+    
     init(presenter: BattlePresenter) {
         _presenter = StateObject(wrappedValue: presenter)
     }
-
+    
     var body: some View {
         ZStack {
             Color(UIColor.darkGray) // 背景全体にグレーを敷く
@@ -35,9 +35,9 @@ struct BattleInitView: View {
                 HStack {
                     ForEach(presenter.state.cards) { card in
                         MonsterCardView(card: card)
-                        .onTapGesture {
-                            presenter.selectCard(id: card.id)
-                        }
+                            .onTapGesture {
+                                presenter.selectCard(id: card.id)
+                            }
                     }
                     .padding(10)
                 }
@@ -48,7 +48,8 @@ struct BattleInitView: View {
                     damageText: presenter.state.playerDamagePopup,
                     onAttack: {
                         presenter.attack()
-                    }
+                    },
+                    isAttackDisabled: presenter.isAttackButtonDisabled
                 )
             }
             // ✅ ゲームクリア
@@ -61,7 +62,7 @@ struct BattleInitView: View {
                     print("クエストに戻る")
                 }
             }
-
+            
             // ✅ ゲームオーバー
             if presenter.state.result == .lose {
                 GameResultOverlay(
@@ -72,7 +73,7 @@ struct BattleInitView: View {
                     print("クエストに戻る")
                 }
             }
-
+            
         }
         .navigationBarBackButtonHidden(true)
     }
