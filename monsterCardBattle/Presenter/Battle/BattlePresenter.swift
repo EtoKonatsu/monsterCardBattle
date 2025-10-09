@@ -1,13 +1,6 @@
 import Foundation
 import SwiftUI
 
-protocol BattlePresenterProtocol: ObservableObject {
-    var state: BattleViewState { get }
-    func selectCard(id: UUID)
-    func attack()
-    func reset()
-}
-
 final class BattlePresenter: BattlePresenterProtocol {
     @Published private(set) var state: BattleViewState
     @Published var isAttackButtonDisabled: Bool = false  // 攻撃ボタン制御用
