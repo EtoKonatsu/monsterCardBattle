@@ -1,0 +1,16 @@
+# BMAD
+_bmad/
+_bmad-output/
+
+# Claude
+.claude/
+
+# Docs
+docs/
+codex.md
+
+# Xcode
+xcuserdata/
+
+# macOS
+.DS_Store

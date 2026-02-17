@@ -57,7 +57,7 @@ View (SwiftUI) → Presenter → UseCase → Repository → DataSource
 - [x] UseCase 層の型が SwiftUI に依存していないか（`ObservableObject`・`@Published`・`Color` などを排除）。
 - [x] Repository がプロトコルを介して注入されているか。
 - [x] Presenter が UI 表示用の `ViewState` を提供しているか。
-- [ ] UseCase / Presenter / Repository のテストが用意されているか。
+- [x] UseCase / Presenter / Repository のテストが用意されているか。
 
 ## 実装済み構成メモ
 - `BattleUseCase` がバトル進行ロジックと状態 (`BattleSnapshot`) を管理。
